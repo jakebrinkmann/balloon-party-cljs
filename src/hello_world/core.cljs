@@ -15,8 +15,11 @@
       (p/render game
         [[:fill {:color "lightblue"}
           [:rect {:x 0 :y 0 :width (.-innerWidth js/window) :height (.-innerHeight js/window)}]]
-         [:fill {:color "black"}
-          [:text {:value "Hello, world!" :x (:text-x @state) :y (:text-y @state) :size 16 :font "Georgia" :style :italic}]]]))))
+         ;[:fill {:color "black"}
+         ; [:text {:value "Hello, world!" :x (:text-x @state) :y (:text-y @state) :size 16 :font "Georgia" :style :italic}]]
+         [:fill {:color "red"}
+          [:ellipse {:x (:text-x @state) :y (:text-y @state) :width 50 :height 70}]
+          ]]))))
 
 (events/listen js/window "mousemove"
   (fn [event]
