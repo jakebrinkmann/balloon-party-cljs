@@ -15,9 +15,18 @@
       (p/render game
         [[:fill {:color "lightblue"}
           [:rect {:x 0 :y 0 :width (.-innerWidth js/window) :height (.-innerHeight js/window)}]]
+         [:fill {:color "lightgreen"}
+          [:stroke {:color "green"}
+           [:ellipse {:x (int (/ (.-innerWidth js/window) 2)) :y (int (/ (.-innerHeight js/window) 2)) 
+                      :width 300 :height 300}]]]
          [:fill {:color "red"}
-          [:ellipse {:x (:text-x @state) :y (:text-y @state) :width 50 :height 70}]
-          ]]))))
+          [:ellipse {:x (:text-x @state) :y (:text-y @state) :width 50 :height 70}]]
+         [:stroke {:colors [102]}
+          [:curve {:x1 (+ (:text-x @state)  0) :y1 (+ (:text-y @state)  0) 
+                   :x2 (+ (:text-x @state)  0) :y2 (+ (:text-y @state) 25) 
+                   :x3 (+ (:text-x @state) 35) :y3 (+ (:text-y @state) 50) 
+                   :x4 (- (:text-x @state) 70) :y4 (+ (:text-y @state) 99) }]]
+          ]))))
 
 (events/listen js/window "mousemove"
   (fn [event]
