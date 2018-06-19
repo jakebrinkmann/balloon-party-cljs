@@ -1,4 +1,4 @@
-(ns hello-world.music
+(ns balloon-party.music
   (:require [edna.core :as edna]))
 
 (def music

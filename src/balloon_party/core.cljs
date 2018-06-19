@@ -1,7 +1,7 @@
-(ns hello-world.core
+(ns balloon-party.core
   (:require [play-cljs.core :as p]
             [goog.events :as events])
-  (:require-macros [hello-world.music :refer [build-for-cljs]]))
+  (:require-macros [balloon-party.music :refer [build-for-cljs]]))
 
 (defonce game (p/create-game (.-innerWidth js/window) (.-innerHeight js/window)))
 (defonce state (atom {}))
@@ -15,8 +15,6 @@
       (p/render game
         [[:fill {:color "lightblue"}
           [:rect {:x 0 :y 0 :width (.-innerWidth js/window) :height (.-innerHeight js/window)}]]
-         ;[:fill {:color "black"}
-         ; [:text {:value "Hello, world!" :x (:text-x @state) :y (:text-y @state) :size 16 :font "Georgia" :style :italic}]]
          [:fill {:color "red"}
           [:ellipse {:x (:text-x @state) :y (:text-y @state) :width 50 :height 70}]
           ]]))))
